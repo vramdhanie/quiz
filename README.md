@@ -1,4 +1,4 @@
-# Trivia Quest
+# Trivia Quest &middot; ![GitHub](https://img.shields.io/github/license/vramdhanie/quiz?color=blue)
 
 An exciting Trivia Game that will entertain you for hours. Be the best at your local pub quiz night!
 
@@ -28,7 +28,9 @@ Instructions and screenshots of the project here
 
 List some technologies that were used in making this project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- [Styled Components](https://www.styled-components.com/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## Contributing
 
