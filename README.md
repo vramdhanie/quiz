@@ -34,6 +34,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Some notes on making contributions to this project
 
-## Credits:
+## Credits
 
-## License:
+Initial build by [Vincent Ramdhanie](https://github.com/vramdhanie)
+
+## License
+
+Trivia Quest is [MIT Licensed](LICENSE).
