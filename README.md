@@ -1,4 +1,4 @@
-# Trivia Quest &middot; ![GitHub](https://img.shields.io/github/license/vramdhanie/quiz?color=blue)
+# Trivia Quest &middot; ![GitHub](https://img.shields.io/github/license/vramdhanie/quiz?color=blue) &middot; ![Travis (.org)](https://img.shields.io/travis/vramdhanie/quiz)
 
 An exciting Trivia Game that will entertain you for hours. Be the best at your local pub quiz night!
 
