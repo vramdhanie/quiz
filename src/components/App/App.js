@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import StyledProps from "../../util/props";
 
-const App = ({ className }: StyledProps) => {
+const App = ({ className }) => {
   return (
     <div className={className}>
       <header className="App-header">
@@ -13,7 +12,7 @@ const App = ({ className }: StyledProps) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Get Excited
+          Learn React
         </a>
       </header>
     </div>
