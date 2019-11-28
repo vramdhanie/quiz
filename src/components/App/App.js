@@ -1,39 +1,44 @@
 import React from "react";
 import styled from "styled-components";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Header from "../Header/header";
+import Footer from "../Footer/footer";
 
 const App = ({ className }) => {
   return (
     <div className={className}>
-      <header className="App-header">
-        <p>Trivia Quest!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <main className="main">
+        <Router>
+          <Route path="/" exact>
+            <p>Trivia Quest!</p>
+          </Route>
+          <Route path="/settings">
+            <p>Settings</p>
+          </Route>
+        </Router>
+      </main>
+      <Footer />
     </div>
   );
 };
 
 export default styled(App)`
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 
-  .App-header {
+  .main {
+    flex: 1;
     background-color: #282c34;
-    min-height: 100vh;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-  }
-
-  .App-link {
-    color: #09d3ac;
   }
 `;
