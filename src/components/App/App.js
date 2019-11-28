@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
@@ -9,7 +10,14 @@ const App = ({ className }) => {
     <div className={className}>
       <Header />
       <main className="main">
-        <p>Trivia Quest!</p>
+        <Router>
+          <Route path="/" exact>
+            <p>Trivia Quest!</p>
+          </Route>
+          <Route path="/settings">
+            <p>Settings</p>
+          </Route>
+        </Router>
       </main>
       <Footer />
     </div>
