@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { StyledProps } from "../../utils/interfaces";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { lightTheme, darkTheme } from "../../styles/themes";
+import { lightTheme } from "../../styles/themes";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
 
@@ -19,7 +19,7 @@ const ThemedMain = styled.main`
 `;
 
 const App: React.FC<StyledProps> = ({ className }) => {
-  const [theme, setTheme] = useState(lightTheme);
+  const [theme] = useState(lightTheme);
   return (
     <ThemeProvider theme={theme}>
       <div className={className}>
