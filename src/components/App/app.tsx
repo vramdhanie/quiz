@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { lightTheme } from "../../styles/themes";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
+import Home from "../Home/home";
 
 const ThemedMain = styled.main`
   flex: 1;
@@ -27,7 +28,7 @@ const App: React.FC<StyledProps> = ({ className }) => {
         <ThemedMain>
           <Router>
             <Route path="/" exact>
-              <p>Trivia Quest!</p>
+              <Home />
             </Route>
             <Route path="/settings">
               <p>Settings</p>
