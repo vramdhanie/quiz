@@ -14,8 +14,8 @@ const ThemedSection = styled.section`
 `;
 
 const BannerStatement = styled.h3`
-  text-shadow: ${props => props.theme.all.lightShadow};
-  color: ${props => props.theme.secondary.dark};
+  text-shadow: 2px 2px 3px ${props => props.theme.primary.dark};
+  color: ${props => props.theme.secondary.main};
 `;
 
 const Home: React.FC<StyledProps> = ({ className }) => {

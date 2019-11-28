@@ -9,7 +9,7 @@ import Home from "../Home/home";
 
 const ThemedMain = styled.main`
   flex: 1;
-  background-color: ${props => props.theme.primary.light};
+  background-color: ${props => props.theme.primary.main};
 
   display: flex;
   flex-direction: column;
@@ -46,4 +46,9 @@ export default styled(App)`
   display: flex;
   flex-direction: column;
   height: 100vh;
+
+  @media screen and (min-width: 690px) {
+    width: 690px;
+    margin: 0 auto;
+  }
 `;
