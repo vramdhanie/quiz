@@ -1,6 +1,6 @@
 {
-  "short_name": "Trivia Quest!",
-  "name": "Trivia Game built on React",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
