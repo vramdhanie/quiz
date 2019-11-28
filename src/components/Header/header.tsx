@@ -1,12 +1,18 @@
 import React from "react";
-import styled from "styled-components";
+
+import { styled } from "../../styles/themes";
 import { StyledProps } from "../../utils/interfaces";
+
+const ThemedHeader = styled.header`
+  background: ${props => props.theme.primary.main};
+  color: ${props => props.theme.primary.text};
+`;
 
 const Header: React.FC<StyledProps> = ({ className }) => {
   return (
-    <header className={className}>
+    <ThemedHeader className={className}>
       <h1>Trivia Quest!</h1>
-    </header>
+    </ThemedHeader>
   );
 };
 
