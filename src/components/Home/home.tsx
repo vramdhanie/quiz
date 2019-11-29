@@ -2,7 +2,7 @@ import React from "react";
 import { styled } from "../../styles/themes";
 import { StyledProps } from "../../utils/interfaces";
 import { Link } from "react-router-dom";
-import { Primary } from "../../common/buttons";
+import { WhiteButton } from "../../common/buttons";
 
 const ThemedSection = styled.section`
   width: 100%;
@@ -30,7 +30,7 @@ const Home: React.FC<StyledProps> = ({ className }) => {
       <div className="callout">Can you score 100%?</div>
 
       <Link to="/quiz" className="action">
-        <Primary>BEGIN</Primary>
+        <WhiteButton>BEGIN</WhiteButton>
       </Link>
     </ThemedSection>
   );

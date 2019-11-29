@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { StyledProps } from "../../utils/interfaces";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { lightTheme } from "../../styles/themes";
+import { darkTheme } from "../../styles/themes";
 import Header from "../Header/header";
 import Footer from "../Footer/footer";
 import Home from "../Home/home";
+import Quiz from "../Quiz/quiz";
+import Score from "../Score/score";
 
 const ThemedMain = styled.main`
   flex: 1;
@@ -20,7 +22,7 @@ const ThemedMain = styled.main`
 `;
 
 const App: React.FC<StyledProps> = ({ className }) => {
-  const [theme] = useState(lightTheme);
+  const [theme] = useState(darkTheme);
   return (
     <ThemeProvider theme={theme}>
       <div className={className}>
@@ -32,6 +34,12 @@ const App: React.FC<StyledProps> = ({ className }) => {
             </Route>
             <Route path="/settings">
               <p>Settings</p>
+            </Route>
+            <Route path="/quiz">
+              <Quiz />
+            </Route>
+            <Route path="/score">
+              <Score />
             </Route>
           </Router>
         </ThemedMain>
