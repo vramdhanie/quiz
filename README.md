@@ -31,6 +31,9 @@ List some technologies that were used in making this project
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - [Styled Components](https://www.styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Redux](https://react-redux.js.org/) and [Saga](https://redux-saga.js.org/) for state management
+- [React Router](https://reacttraining.com/react-router/web/guides/quick-start) for navigation
+- [React Icons](https://react-icons.netlify.com/#/) for simply integration of popular icon libraries
 
 ## Contributing
 
