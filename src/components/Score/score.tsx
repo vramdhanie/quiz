@@ -3,6 +3,10 @@ import { styled } from "../../styles/themes";
 import { StyledProps } from "../../utils/interfaces";
 import { Link } from "react-router-dom";
 import { PrimaryButton } from "../../common/buttons";
+import { Question as QuestionInterface } from "../../store/quiz/types";
+import { connect } from "react-redux";
+import { AppState } from "../../store";
+import Result from "../Result/result";
 
 const ThemedSection = styled.section`
   width: 100%;
@@ -13,15 +17,38 @@ const ThemedSection = styled.section`
   justify-content: space-around;
 `;
 
-const Quiz: React.FC<StyledProps> = ({ className }) => {
+interface ScoreProps extends StyledProps {
+  questions: QuestionInterface[];
+  answers: boolean[];
+}
+
+const Score: React.FC<ScoreProps> = ({ className, questions, answers }) => {
   return (
     <ThemedSection className={className}>
-      The Final Score
+      <div>You Scored 7/10</div>
+      <div>
+        {questions.map((question, index) => (
+          <Result
+            question={question.question}
+            correctAnswer={question.correct_answer === "True"}
+            givenAnswer={answers[index]}
+            key={index}
+          />
+        ))}
+      </div>
       <Link to="/" className="action">
-        <PrimaryButton>Home</PrimaryButton>
+        <PrimaryButton>Play Again?</PrimaryButton>
       </Link>
     </ThemedSection>
   );
 };
 
-export default styled(Quiz)``;
+export const StyledScore = styled(Score)``;
+
+const mapStateToProps = (state: AppState) => ({
+  questions: state.quiz.questions,
+  answers: state.quiz.answers,
+  maxQuestions: state.quiz.maxQuestions
+});
+
+export default connect(mapStateToProps)(StyledScore);

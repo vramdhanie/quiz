@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { StyledScore } from "./score";
+import { StyledResult } from "./result";
 import { ThemeProvider } from "styled-components";
 import { lightTheme } from "../../styles/themes";
 import { MemoryRouter } from "react-router";
@@ -10,7 +10,7 @@ it("renders without crashing", () => {
   ReactDOM.render(
     <MemoryRouter initialEntries={["/"]}>
       <ThemeProvider theme={lightTheme}>
-        <StyledScore />
+        <StyledResult />
       </ThemeProvider>
     </MemoryRouter>,
     div
