@@ -11,11 +11,17 @@ export interface QuestionState {
   questions: Question[];
   difficulty: string;
   score: number;
+  loading: boolean;
 }
 
 export const SET_QUESTIONS = "SET_QUESTIONS";
+export const FETCH_QUESTIONS = "FETCH_QUESTIONS";
 export const UPDATE_DIFFICULTY = "UPDATE_DIFFICULTY";
 export const UPDATE_SCORE = "UPDATE_SCORE";
+
+interface FetchQuestionsAction {
+  type: typeof FETCH_QUESTIONS;
+}
 
 interface SetQuestionsAction {
   type: typeof SET_QUESTIONS;
@@ -34,5 +40,6 @@ interface UpdateScoreAction {
 
 export type QuizActionTypes =
   | SetQuestionsAction
+  | FetchQuestionsAction
   | UpdateDifficultyAction
   | UpdateScoreAction;

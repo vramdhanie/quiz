@@ -14,7 +14,7 @@ An exciting Trivia Game that will entertain you for hours. Be the best at your l
 
 ## Demonstration
 
-Link to the demonstration website
+To see this app in action visit this [demo site](https://vramdhanie.github.io/quiz).
 
 ## Installation
 
@@ -26,14 +26,14 @@ Instructions and screenshots of the project here
 
 ## Technologies
 
-List some technologies that were used in making this project
+Some technologies that were used in making this project:
 
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - [Styled Components](https://www.styled-components.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Redux](https://react-redux.js.org/) and [Saga](https://redux-saga.js.org/) for state management
 - [React Router](https://reacttraining.com/react-router/web/guides/quick-start) for navigation
-- [React Icons](https://react-icons.netlify.com/#/) for simply integration of popular icon libraries
+- [React Icons](https://react-icons.netlify.com/#/) for simple integration of popular icon libraries
 
 ## Contributing
 

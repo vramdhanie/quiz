@@ -3,21 +3,29 @@ import {
   SET_QUESTIONS,
   UPDATE_DIFFICULTY,
   UPDATE_SCORE,
-  QuizActionTypes
+  QuizActionTypes,
+  FETCH_QUESTIONS
 } from "./types";
 
 const initialState: QuestionState = {
   questions: [],
   difficulty: "easy",
-  score: 0
+  score: 0,
+  loading: false
 };
 
 export function quizReducer(state = initialState, action: QuizActionTypes) {
   switch (action.type) {
+    case FETCH_QUESTIONS:
+      return {
+        ...state,
+        loading: true
+      };
     case SET_QUESTIONS:
       return {
         ...state,
-        questions: action.payload
+        questions: action.payload,
+        loading: false
       };
     case UPDATE_DIFFICULTY:
       return {
