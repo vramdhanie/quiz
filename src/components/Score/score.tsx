@@ -42,7 +42,7 @@ const Score: React.FC<ScoreProps> = ({
       )
       .filter(ans => ans).length;
     setTotal(right);
-  }, [total]);
+  }, [total, questions, answers]);
 
   const resetQuiz = () => {
     clearQuestions();
