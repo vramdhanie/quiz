@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { styled } from "../../styles/themes";
 import { StyledProps } from "../../utils/interfaces";
-import { Link } from "react-router-dom";
-import { PrimaryButton } from "../../common/buttons";
+import Question from "../Question/question";
 import { connect } from "react-redux";
 import { AppState } from "../../store";
-import { Question } from "../../store/quiz/types";
+import { Question as QuestionInterface } from "../../store/quiz/types";
 import { FaSpinner } from "react-icons/fa";
 import { fetchQuestions } from "../../store/quiz/actions";
 
@@ -19,31 +18,57 @@ const ThemedSection = styled.section`
   align-items: center;
 `;
 
+interface ProgressProps {
+  readonly completed: number;
+}
+
+const ProgressBar = styled.div<ProgressProps>`
+  background: linear-gradient(
+    to right,
+    ${props => props.theme.secondary.dark} ${props => props.completed}%,
+    ${props => props.theme.secondary.light} ${props => props.completed}%
+  );
+  height: 15px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20px;
+  font-size: 0.8rem;
+  border-radius: 5px;
+`;
+
 interface QuizProps extends StyledProps {
   loading: boolean;
-  questions: Question[];
+  questions: QuestionInterface[];
   fetchQuestions: typeof fetchQuestions;
+  currentQuestion: number;
+  maxQuestions: number;
 }
 
 const Quiz: React.FC<QuizProps> = ({
   className,
   loading,
   questions,
-  fetchQuestions
+  fetchQuestions,
+  currentQuestion,
+  maxQuestions
 }) => {
   useEffect(() => {
-    if (questions.length === 0) {
+    if (!loading && questions.length === 0) {
       fetchQuestions();
     }
-  }, [questions.length]);
+  });
+
   return (
     <ThemedSection className={className}>
       {loading ? (
         <FaSpinner className="icon-spin" />
       ) : (
-        <Link to="/score" className="action">
-          <PrimaryButton>Score</PrimaryButton>
-        </Link>
+        <>
+          <Question question={questions[currentQuestion]} />
+          <ProgressBar completed={((currentQuestion + 1) / maxQuestions) * 100}>
+            {currentQuestion + 1} of {maxQuestions}
+          </ProgressBar>
+        </>
       )}
     </ThemedSection>
   );
@@ -81,7 +106,9 @@ export const StyledQuiz = styled(Quiz)`
 
 const mapStateToProps = (state: AppState) => ({
   loading: state.quiz.loading,
-  questions: state.quiz.questions
+  questions: state.quiz.questions,
+  currentQuestion: state.quiz.currentQuestion,
+  maxQuestions: state.quiz.maxQuestions
 });
 
 export default connect(mapStateToProps, { fetchQuestions })(StyledQuiz);
