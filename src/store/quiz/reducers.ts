@@ -37,7 +37,8 @@ export function quizReducer(state = initialState, action: QuizActionTypes) {
       return {
         ...state,
         questions: [],
-        currentQuestion: 0
+        currentQuestion: 0,
+        answers: []
       };
     case UPDATE_DIFFICULTY:
       return {

@@ -18,6 +18,11 @@ const ThemedSection = styled.section`
   align-items: center;
 `;
 
+const QuestionNumber = styled.h2`
+  color: ${props => props.theme.primary.dark};
+  text-shadow: 1px 1px 4px ${props => props.theme.primary.light};
+`;
+
 interface ProgressProps {
   readonly completed: number;
 }
@@ -64,9 +69,10 @@ const Quiz: React.FC<QuizProps> = ({
         <FaSpinner className="icon-spin" />
       ) : (
         <>
+          <QuestionNumber>Question {currentQuestion + 1}</QuestionNumber>
           <Question question={questions[currentQuestion]} />
-          <ProgressBar completed={((currentQuestion + 1) / maxQuestions) * 100}>
-            {currentQuestion + 1} of {maxQuestions}
+          <ProgressBar completed={(currentQuestion / maxQuestions) * 100}>
+            {currentQuestion} of {maxQuestions} completed
           </ProgressBar>
         </>
       )}
