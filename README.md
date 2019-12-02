@@ -8,7 +8,7 @@ An exciting Trivia Game that will entertain you for hours. Be the best at your l
 - [Installation](#installation)
 - [Usage](#usage)
 - [Technologies](#technologies)
-- [Future Work](#future_work)
+- [Future Work](#future-work)
 - [Contributing](#contributing)
 - [Credits](#credits)
 - [License](#license)
