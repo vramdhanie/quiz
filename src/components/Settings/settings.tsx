@@ -3,6 +3,7 @@ import { styled } from "../../styles/themes";
 import { StyledProps } from "../../utils/interfaces";
 import { MdMoreVert } from "react-icons/md";
 import ModeSwitcher from "../ModeSwitcher/modeSwitcher";
+import DifficultySwitcher from "../DifficultySwitcher/difficultySwitcher";
 
 const MenuIcon = styled.div`
   flex: 1;
@@ -31,6 +32,7 @@ const FullMenu = styled.div`
   border-radius: 6px;
   box-shadow: ${props => props.theme.all.darkShadow};
   transition: ${props => props.theme.all.mainTransition};
+  z-index: 99;
   &::before {
     position: absolute;
     top: -20px;
@@ -88,6 +90,7 @@ const Settings: React.FC<StyledProps> = ({ className }) => {
         <FullMenu>
           <CloseButton onClick={() => setIsOpen(!isOpen)}>x</CloseButton>
           <ModeSwitcher />
+          <DifficultySwitcher />
         </FullMenu>
       ) : (
         ""

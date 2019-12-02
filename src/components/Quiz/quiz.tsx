@@ -23,6 +23,16 @@ const QuestionNumber = styled.h2`
   text-shadow: 1px 1px 4px ${props => props.theme.primary.light};
 `;
 
+const DiffDiv = styled.div`
+  text-transform: uppercase;
+  opacity: 0.6;
+  color: ${props => props.theme.secondary.dark};
+  font-size: 1.2rem;
+  position: absolute;
+  right: 10%;
+  top: 5%;
+`;
+
 interface ProgressProps {
   readonly completed: number;
 }
@@ -47,6 +57,7 @@ interface QuizProps extends StyledProps {
   fetchQuestions: typeof fetchQuestions;
   currentQuestion: number;
   maxQuestions: number;
+  difficulty: string;
 }
 
 const Quiz: React.FC<QuizProps> = ({
@@ -55,7 +66,8 @@ const Quiz: React.FC<QuizProps> = ({
   questions,
   fetchQuestions,
   currentQuestion,
-  maxQuestions
+  maxQuestions,
+  difficulty
 }) => {
   useEffect(() => {
     if (!loading && questions.length === 0) {
@@ -69,6 +81,7 @@ const Quiz: React.FC<QuizProps> = ({
         <FaSpinner className="icon-spin" />
       ) : (
         <>
+          <DiffDiv>{difficulty}</DiffDiv>
           <QuestionNumber>Question {currentQuestion + 1}</QuestionNumber>
           <Question question={questions[currentQuestion]} />
           <ProgressBar completed={(currentQuestion / maxQuestions) * 100}>
@@ -114,7 +127,8 @@ const mapStateToProps = (state: AppState) => ({
   loading: state.quiz.loading,
   questions: state.quiz.questions,
   currentQuestion: state.quiz.currentQuestion,
-  maxQuestions: state.quiz.maxQuestions
+  maxQuestions: state.quiz.maxQuestions,
+  difficulty: state.quiz.difficulty
 });
 
 export default connect(mapStateToProps, { fetchQuestions })(StyledQuiz);

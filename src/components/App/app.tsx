@@ -2,6 +2,7 @@ import React from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { AppProps } from "../../utils/interfaces";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import ControlledRoute from "../../utils/ControlledRoute/controlledRoute";
 import { connect } from "react-redux";
 import { AppState } from "../../store";
 import { Mode } from "../../store/system/types";
@@ -22,6 +23,7 @@ const ThemedMain = styled.main`
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: ${props => props.theme.primary.text};
+  position: relative;
 `;
 
 const App: React.FC<AppProps> = ({ className, mode }) => {
@@ -40,9 +42,9 @@ const App: React.FC<AppProps> = ({ className, mode }) => {
             <Route path="/quiz">
               <Quiz />
             </Route>
-            <Route path="/score">
+            <ControlledRoute path="/score">
               <Score />
-            </Route>
+            </ControlledRoute>
           </Router>
         </ThemedMain>
         <Footer />
